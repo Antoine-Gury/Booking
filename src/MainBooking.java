@@ -1,17 +1,8 @@
-import models.*;
-import java.util.Date;
-import java.util.List;
-
 /**
- * Programme de test pour la Partie 3 : Collections, Recherche et Finalisation
+ * Programme de démonstration pour la Partie 3 : Collections et Recherche
  * 
- * Ce programme démontre l'utilisation de CollectionHebergements avec :
- * - Recherche multicritères
- * - Tri des hébergements
- * - Gestion des statistiques
- * 
- * Note: Ce programme suppose que les classes des Parties 1 et 2 sont 
- * déjà implémentées par vos collègues.
+ * Ce programme affiche les fonctionnalités de CollectionHebergements
+ * et s'exécute sans dépendre des Parties 1-2.
  */
 public class MainBooking {
     
@@ -20,75 +11,83 @@ public class MainBooking {
         System.out.println("╔════════════════════════════════════════════════════════════╗");
         System.out.println("║        MINI-BOOKING - PARTIE 3 : COLLECTIONS ET RECHERCHE  ║");
         System.out.println("║                                                            ║");
-        System.out.println("║  Ce programme démontre les fonctionnalités de la Partie 3 ║");
+        System.out.println("║  Démonstration des fonctionnalités disponibles             ║");
         System.out.println("╚════════════════════════════════════════════════════════════╝\n");
-        
-        System.out.println("⚠️  ATTENTION : Ce programme nécessite que les classes des");
-        System.out.println("    Parties 1 et 2 soient implémentées :");
-        System.out.println("    - Personne, Client, NouveauClient, AncienClient");
-        System.out.println("    - Hebergement, ChambreHotel, Appartement, Villa");
-        System.out.println("    - Reservation, Reservable, PeriodeDisponible\n");
         
         demoCollectionHebergements();
     }
     
     /**
-     * Démontre les fonctionnalités de CollectionHebergements
+     * Affiche les fonctionnalités de CollectionHebergements
      */
     private static void demoCollectionHebergements() {
         System.out.println("=".repeat(60));
-        System.out.println("DÉMONSTRATION : CollectionHebergements");
+        System.out.println("CLASSE : CollectionHebergements");
         System.out.println("=".repeat(60) + "\n");
         
-        // Créer une collection
-        CollectionHebergements collection = new CollectionHebergements();
-        System.out.println("✓ Collection créée\n");
+        System.out.println("Cette classe gère une collection d'hébergements avec :\n");
         
-        // Afficher les méthodes disponibles
-        System.out.println("Méthodes disponibles dans CollectionHebergements :\n");
-        
-        System.out.println("🔍 RECHERCHE :");
+        System.out.println("🔍 MÉTHODES DE RECHERCHE :");
+        System.out.println("  • rechercherParPrixMax(double prixMax)");
+        System.out.println("  • rechercherParCapaciteMin(int capaciteMin)");
+        System.out.println("  • rechercherParType(String type)");
+        System.out.println("  • rechercherParNoteMin(double noteMin)");
         System.out.println("  • rechercherParPrixMax(double prixMax)");
         System.out.println("  • rechercherParCapaciteMin(int capaciteMin)");
         System.out.println("  • rechercherParType(String type)");
         System.out.println("  • rechercherParNoteMin(double noteMin)");
         System.out.println("  • rechercherDisponibles(Date debut, Date fin)");
-        System.out.println("  • rechercherMulticriteres(prix, capacité, type, note, dates)\n");
+        System.out.println("  • rechercherMulticriteres(...)\n");
         
         System.out.println("📊 TRI :");
-        System.out.println("  • trierParPrix()");
-        System.out.println("  • trierParNote()");
-        System.out.println("  • trierParCapacite()\n");
+        System.out.println("  • trierParPrix() - Ordre croissant");
+        System.out.println("  • trierParNote() - Ordre décroissant");
+        System.out.println("  • trierParCapacite() - Ordre décroissant\n");
         
         System.out.println("📈 STATISTIQUES :");
-        System.out.println("  • getTaille()");
-        System.out.println("  • getPrixMoyen()");
-        System.out.println("  • getNoteMoyenne()\n");
+        System.out.println("  • getTaille() - Nombre d'hébergements");
+        System.out.println("  • getPrixMoyen() - Prix moyen");
+        System.out.println("  • getNoteMoyenne() - Note moyenne\n");
         
         System.out.println("➕ GESTION :");
-        System.out.println("  • ajouter(Hebergement h)");
-        System.out.println("  • supprimer(String identifiant)");
-        System.out.println("  • rechercherParIdentifiant(String id)");
-        System.out.println("  • afficherTous()");
-        System.out.println("  • afficherListe(List<Hebergement> liste)\n");
+        System.out.println("  • ajouter(Hebergement h) - Ajouter à la collection");
+        System.out.println("  • supprimer(String identifiant) - Supprimer par ID");
+        System.out.println("  • rechercherParIdentifiant(String id) - Chercher par ID");
+        System.out.println("  • afficherTous() - Afficher tous");
+        System.out.println("  • afficherListe(List<Hebergement> liste) - Afficher une liste\n");
         
         System.out.println("=".repeat(60));
-        System.out.println("ÉTAPES POUR TESTER :");
+        System.out.println("UTILISATION :");
         System.out.println("=".repeat(60) + "\n");
         
-        System.out.println("1. Créer des hébergements via les sous-classes");
-        System.out.println("   (ChambreHotel, Appartement, Villa)");
-        System.out.println("\n2. Les ajouter à la collection :");
-        System.out.println("   collection.ajouter(chambreHotel1);");
-        System.out.println("\n3. Effectuer des recherches :");
-        System.out.println("   List<Hebergement> resultats = ");
-        System.out.println("       collection.rechercherParPrixMax(150.0);");
-        System.out.println("\n4. Trier les résultats :");
-        System.out.println("   collection.trierParNote();");
-        System.out.println("   collection.afficherTous();");
-        System.out.println("\n5. Voir les statistiques :");
-        System.out.println("   System.out.println(\"Prix moyen: \" + ");
-        System.out.println("       collection.getPrixMoyen());");
-        System.out.println();
+        System.out.println("// Créer une collection");
+        System.out.println("CollectionHebergements collection = new CollectionHebergements();\n");
+        
+        System.out.println("// Ajouter des hébergements");
+        System.out.println("collection.ajouter(hebergement1);");
+        System.out.println("collection.ajouter(hebergement2);\n");
+        
+        System.out.println("// Recherche multicritères");
+        System.out.println("List<Hebergement> resultats = collection.rechercherMulticriteres(");
+        System.out.println("    200.0,      // Prix max");
+        System.out.println("    2,          // Capacité min");
+        System.out.println("    \"Villa\",   // Type");
+        System.out.println("    4.0,        // Note min");
+        System.out.println("    debut, fin  // Dates");
+        System.out.println(");\n");
+        
+        System.out.println("// Trier et afficher");
+        System.out.println("collection.trierParNote();");
+        System.out.println("collection.afficherTous();\n");
+        
+        System.out.println("// Statistiques");
+        System.out.println("System.out.println(\"Nombre: \" + collection.getTaille());");
+        System.out.println("System.out.println(\"Prix moyen: \" + collection.getPrixMoyen());");
+        System.out.println("System.out.println(\"Note moyenne: \" + collection.getNoteMoyenne());\n");
+        
+        System.out.println("=".repeat(60));
+        System.out.println("⏭️  Prêt pour tester avec les classes des Parties 1-2 !");
+        System.out.println("=".repeat(60));
     }
 }
+
